@@ -21,6 +21,35 @@ colunas_traduzidas = {
 # Renomeando as colunas do DataFrame
 df = df.rename(columns=colunas_traduzidas)
 
+# Dicionários para traduzir os valores das colunas
+traducao_nivel_experiencia = {
+    'EN': 'Junior',
+    'MI': 'Pleno',
+    'SE': 'Sênior',
+    'EX': 'Executivo'
+}
+traducao_tipo_emprego = {
+    'FT': 'Tempo Integral',
+    'PT': 'Meio Período',
+    'CT': 'Contrato',
+    'FL': 'Freelancer'
+}
+traducao_tamanho_empresa = {
+    'S': 'Pequena',
+    'M': 'Média',
+    'L': 'Grande'
+}
+traducao_proporcao_remoto = {
+    0: 'Presencial',
+    50: 'Híbrido',
+    100: 'Remoto'
+}
+
+df['nivel_de_experiencia'] = df['nivel_de_experiencia'].replace(traducao_nivel_experiencia)
+df['tipo_de_emprego'] = df['tipo_de_emprego'].replace(traducao_tipo_emprego)
+df['tamanho_da_empresa'] = df['tamanho_da_empresa'].replace(traducao_tamanho_empresa)
+df['proporcao_remoto'] = df['proporcao_remoto'].replace(traducao_proporcao_remoto)
+
 print(df.head())
 
 print("============================================")
